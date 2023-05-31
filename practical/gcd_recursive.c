@@ -11,18 +11,16 @@ Date:           28/03/2022
 
 int gcd();
 
-void main()
-{
-    int a, b;
-    printf("Enter the two numbers:\n");
-    scanf("%d%d", &a, &b);
-    printf("The gcd of %d and %d = %d\n", a, b, gcd(a, b));
+void main() {
+  int a, b;
+  printf("Enter the two numbers:\n");
+  scanf("%d%d", &a, &b);
+  printf("The gcd of %d and %d = %d\n", a, b, gcd(a, b));
 }
 
-int gcd(int a, int b)
-{
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+int gcd(int a, int b) {
+  if (b == 0)
+    return a;
+  else
+    return gcd(b, a % b);
 }

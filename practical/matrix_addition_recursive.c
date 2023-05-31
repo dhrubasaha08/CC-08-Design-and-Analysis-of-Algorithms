@@ -14,96 +14,83 @@ int inputMat();
 int addMat();
 void outputMat();
 
-void main()
-{
-    int m, n, **a, **b, **c;
+void main() {
+  int m, n, **a, **b, **c;
 
-    printf("Enter the number of rows and columns of matrices:\n");
-    scanf("%d%d", &m, &n);
+  printf("Enter the number of rows and columns of matrices:\n");
+  scanf("%d%d", &m, &n);
 
-    if (m % 2 == 0 && n % 2 == 0)
-    {
-        a = allocMem(m, n);
-        b = allocMem(m, n);
-        c = allocMem(m, n);
+  if (m % 2 == 0 && n % 2 == 0) {
+    a = allocMem(m, n);
+    b = allocMem(m, n);
+    c = allocMem(m, n);
 
-        printf("Enter the elements of first matrix:\n");
-        inputMat(a, m, n);
+    printf("Enter the elements of first matrix:\n");
+    inputMat(a, m, n);
 
-        printf("Enter the elements of second matrix:\n");
-        inputMat(b, m, n);
+    printf("Enter the elements of second matrix:\n");
+    inputMat(b, m, n);
 
-        printf("Matrix A:\n");
-        outputMat(a, m, n);
+    printf("Matrix A:\n");
+    outputMat(a, m, n);
 
-        printf("Matrix B:\n");
-        outputMat(b, m, n);
+    printf("Matrix B:\n");
+    outputMat(b, m, n);
 
-        addMat(a, b, c, 0, m, 0, n);
+    addMat(a, b, c, 0, m, 0, n);
 
-        printf("The addition of the two matrices:\n");
-        outputMat(c, m, n);
+    printf("The addition of the two matrices:\n");
+    outputMat(c, m, n);
 
-        free(a);
-        free(b);
-        free(c);
-    }
-    else
-    {
-        printf("The number of rows and columns of matrices should be even for divide and conquer method.\n");
-    }
+    free(a);
+    free(b);
+    free(c);
+  } else {
+    printf("The number of rows and columns of matrices should be even for "
+           "divide and conquer method.\n");
+  }
 }
 
-int **allocMem(int m, int n)
-{
-    int **x, i;
-    x = (int **)calloc(m, sizeof(int *));
-    for (i = 0; i < m; i++)
-    {
-        x[i] = (int *)calloc(n, sizeof(int));
-    }
-    return x;
+int **allocMem(int m, int n) {
+  int **x, i;
+  x = (int **)calloc(m, sizeof(int *));
+  for (i = 0; i < m; i++) {
+    x[i] = (int *)calloc(n, sizeof(int));
+  }
+  return x;
 }
 
-int inputMat(int **a, int m, int n)
-{
-    int i, j;
-    for (i = 0; i < m; i++)
-    {
-        for (j = 0; j < n; j++)
-        {
-            printf("Element %d, %d:\n", i + 1, j + 1);
-            scanf("%d", &a[i][j]);
-        }
+int inputMat(int **a, int m, int n) {
+  int i, j;
+  for (i = 0; i < m; i++) {
+    for (j = 0; j < n; j++) {
+      printf("Element %d, %d:\n", i + 1, j + 1);
+      scanf("%d", &a[i][j]);
     }
+  }
 }
 
-int addMat(int **a, int **b, int **c, int rs, int re, int cs, int ce)
-{
-    if (re - rs == 1)
-        c[rs][cs] = a[rs][cs] + b[rs][cs];
-    else
-    {
-        int rm = (rs + re) / 2;
-        int cm = (cs + ce) / 2;
-        addMat(a, b, c, rs, rm, cs, cm);
-        addMat(a, b, c, rs, rm, cm, ce);
-        addMat(a, b, c, rm, re, cs, cm);
-        addMat(a, b, c, rm, re, cm, ce);
-    }
+int addMat(int **a, int **b, int **c, int rs, int re, int cs, int ce) {
+  if (re - rs == 1)
+    c[rs][cs] = a[rs][cs] + b[rs][cs];
+  else {
+    int rm = (rs + re) / 2;
+    int cm = (cs + ce) / 2;
+    addMat(a, b, c, rs, rm, cs, cm);
+    addMat(a, b, c, rs, rm, cm, ce);
+    addMat(a, b, c, rm, re, cs, cm);
+    addMat(a, b, c, rm, re, cm, ce);
+  }
 }
 
-void outputMat(int **a, int m, int n)
-{
-    int i, j;
-    for (i = 0; i < m; i++)
-    {
-        for (j = 0; j < n; j++)
-        {
-            printf("%d\t", a[i][j]);
-        }
-        printf("\n");
+void outputMat(int **a, int m, int n) {
+  int i, j;
+  for (i = 0; i < m; i++) {
+    for (j = 0; j < n; j++) {
+      printf("%d\t", a[i][j]);
     }
+    printf("\n");
+  }
 }
 
 /*

@@ -11,18 +11,16 @@ Date:           28/03/2022
 
 int sum();
 
-void main()
-{
-    int n;
-    printf("Enter the number of natural numbers:\n");
-    scanf("%d", &n);
-    printf("The sum of natural numbers = %d\n", sum(n));
+void main() {
+  int n;
+  printf("Enter the number of natural numbers:\n");
+  scanf("%d", &n);
+  printf("The sum of natural numbers = %d\n", sum(n));
 }
 
-int sum(int n)
-{
-    if (n == 0)
-        return 0;
-    else
-        return n + sum(n - 1);
+int sum(int n) {
+  if (n == 0)
+    return 0;
+  else
+    return n + sum(n - 1);
 }

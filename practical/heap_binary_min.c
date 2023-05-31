@@ -14,77 +14,70 @@ void minHeapify(int *arr, int n, int i);
 void buildMinHeap(int *arr, int n);
 void printArr(int *arr, int n);
 
-void main()
-{
-    int n, *arr;
+void main() {
+  int n, *arr;
 
-    printf("Enter the number of elements: ");
-    scanf("%d", &n);
+  printf("Enter the number of elements: ");
+  scanf("%d", &n);
 
-    arr = (int *)malloc(n * sizeof(int));
+  arr = (int *)malloc(n * sizeof(int));
 
-    inputArr(arr, n);
+  inputArr(arr, n);
 
-    printf("Before min heapify:\n");
-    printArr(arr, n);
+  printf("Before min heapify:\n");
+  printArr(arr, n);
 
-    buildMinHeap(arr, n);
+  buildMinHeap(arr, n);
 
-    printf("After min heapify:\n");
-    printArr(arr, n);
+  printf("After min heapify:\n");
+  printArr(arr, n);
 
-    free(arr);
+  free(arr);
 }
 
-void inputArr(int *arr, int n)
-{
-    int i;
+void inputArr(int *arr, int n) {
+  int i;
 
-    for (i = 0; i < n; i++)
-    {
-        printf("Enter the element %d:\n", i + 1);
-        scanf("%d", &arr[i]);
-    }
+  for (i = 0; i < n; i++) {
+    printf("Enter the element %d:\n", i + 1);
+    scanf("%d", &arr[i]);
+  }
 }
 
-void minHeapify(int *arr, int n, int i)
-{
-    int l, r, smallest, temp;
+void minHeapify(int *arr, int n, int i) {
+  int l, r, smallest, temp;
 
-    l = 2 * i + 1;
-    r = 2 * i + 2;
-    smallest = i;
+  l = 2 * i + 1;
+  r = 2 * i + 2;
+  smallest = i;
 
-    if (l < n && arr[l] < arr[smallest])
-        smallest = l;
-    if (r < n && arr[r] < arr[smallest])
-        smallest = r;
+  if (l < n && arr[l] < arr[smallest])
+    smallest = l;
+  if (r < n && arr[r] < arr[smallest])
+    smallest = r;
 
-    if (smallest != i)
-    {
-        temp = arr[i];
-        arr[i] = arr[smallest];
-        arr[smallest] = temp;
+  if (smallest != i) {
+    temp = arr[i];
+    arr[i] = arr[smallest];
+    arr[smallest] = temp;
 
-        minHeapify(arr, n, smallest);
-    }
+    minHeapify(arr, n, smallest);
+  }
 }
 
-void buildMinHeap(int *arr, int n)
-{
-    int i;
+void buildMinHeap(int *arr, int n) {
+  int i;
 
-    for (i = n / 2 - 1; i >= 0; i--)
-        minHeapify(arr, n, i);
+  for (i = n / 2 - 1; i >= 0; i--)
+    minHeapify(arr, n, i);
 }
 
-void printArr(int *arr, int n)
-{
-    int i;
+void printArr(int *arr, int n) {
+  int i;
 
-    for (i = 0; i < n; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
+  for (i = 0; i < n; i++)
+    printf("%d ", arr[i]);
+  printf("\n");
 }
 
 /*
@@ -100,7 +93,7 @@ Enter the element 4:
 Enter the element 5:
 2
 Before min heapify:
-21 23 56 71 2 
+21 23 56 71 2
 After min heapify:
 2 21 56 71 23
 */

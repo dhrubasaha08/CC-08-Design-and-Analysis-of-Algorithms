@@ -2,8 +2,8 @@
 Name:           Dhruba Saha
 Roll No:        B.Sc(Sem-IV)-04
 Program No:     20
-Program Name:   Write a C program to implement selection sort. Use dynamic memory allocation and subfunction.
-Date:           09/06/2022
+Program Name:   Write a C program to implement selection sort. Use dynamic
+memory allocation and subfunction. Date:           09/06/2022
 *************************************************************************************************************/
 
 #include <stdio.h>
@@ -13,69 +13,60 @@ void inputArr(int *arr, int n);
 void selectionSort(int *arr, int n);
 void printArr(int *arr, int n);
 
-void main()
-{
-    int n, *arr;
+void main() {
+  int n, *arr;
 
-    printf("Enter the number of elements:\n");
-    scanf("%d", &n);
+  printf("Enter the number of elements:\n");
+  scanf("%d", &n);
 
-    arr = (int *)malloc(sizeof(int) * n);
+  arr = (int *)malloc(sizeof(int) * n);
 
-    inputArr(arr, n);
+  inputArr(arr, n);
 
-    printf("Before selection sort\n");
-    printArr(arr, n);
+  printf("Before selection sort\n");
+  printArr(arr, n);
 
-    selectionSort(arr, n);
+  selectionSort(arr, n);
 
-    printf("After selection sort\n");
-    printArr(arr, n);
+  printf("After selection sort\n");
+  printArr(arr, n);
 
-    free(arr);
+  free(arr);
 }
 
-void inputArr(int *arr, int n)
-{
-    int i;
+void inputArr(int *arr, int n) {
+  int i;
 
-    for (i = 0; i < n; i++)
-    {
-        printf("Enter the element %d:\n", i + 1);
-        scanf("%d", &arr[i]);
-    }
+  for (i = 0; i < n; i++) {
+    printf("Enter the element %d:\n", i + 1);
+    scanf("%d", &arr[i]);
+  }
 }
 
-void selectionSort(int *arr, int n)
-{
-    int i, j, min, temp;
+void selectionSort(int *arr, int n) {
+  int i, j, min, temp;
 
-    for (i = 0; i < n - 1; i++)
-    {
-        min = i;
-        for (j = i + 1; j < n; j++)
-        {
-            if (arr[j] < arr[min])
-            {
-                min = j;
-            }
-        }
-        temp = arr[i];
-        arr[i] = arr[min];
-        arr[min] = temp;
+  for (i = 0; i < n - 1; i++) {
+    min = i;
+    for (j = i + 1; j < n; j++) {
+      if (arr[j] < arr[min]) {
+        min = j;
+      }
     }
+    temp = arr[i];
+    arr[i] = arr[min];
+    arr[min] = temp;
+  }
 }
 
-void printArr(int *arr, int n)
-{
-    int i;
+void printArr(int *arr, int n) {
+  int i;
 
-    printf("Array:\n");
-    for (i = 0; i < n; i++)
-    {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
+  printf("Array:\n");
+  for (i = 0; i < n; i++) {
+    printf("%d ", arr[i]);
+  }
+  printf("\n");
 }
 
 /*
