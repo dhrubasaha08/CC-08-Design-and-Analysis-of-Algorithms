@@ -60,7 +60,6 @@ Feel free to explore these implementations. They should provide a practical unde
 
 ## Other Folders
 
-- `books`: Contains reference material for the course, such as the 'Introduction_to_algorithms-3rd Edition.pdf'.
 - `docs`: Contains documents related to practical assignments and past year questions.
 - `internal`: Contains internal assignment submissions.
 - `presentation`: Contains a PowerPoint presentation on the course content.
