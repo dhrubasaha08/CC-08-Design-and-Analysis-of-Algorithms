@@ -12,76 +12,69 @@ void inputArr(int *arr, int n);
 void bucketSort(int *arr, int n);
 void printArr(int *arr, int n);
 
-void main()
-{
-    int n, *arr;
+void main() {
+  int n, *arr;
 
-    printf("Enter the number of elements:\n");
-    scanf("%d", &n);
+  printf("Enter the number of elements:\n");
+  scanf("%d", &n);
 
-    arr = (int *)malloc(sizeof(int) * n);
+  arr = (int *)malloc(sizeof(int) * n);
 
-    inputArr(arr, n);
+  inputArr(arr, n);
 
-    printf("Before bucket sort\n");
-    printArr(arr, n);
+  printf("Before bucket sort\n");
+  printArr(arr, n);
 
-    bucketSort(arr, n);
+  bucketSort(arr, n);
 
-    printf("After bucket sort\n");
-    printArr(arr, n);
+  printf("After bucket sort\n");
+  printArr(arr, n);
 }
 
-void inputArr(int *arr, int n)
-{
-    int i;
+void inputArr(int *arr, int n) {
+  int i;
 
-    for (i = 0; i < n; i++)
-    {
-        printf("Enter the element %d:\n", i + 1);
-        scanf("%d", &arr[i]);
-    }
+  for (i = 0; i < n; i++) {
+    printf("Enter the element %d:\n", i + 1);
+    scanf("%d", &arr[i]);
+  }
 }
 
-void bucketSort(int *arr, int n)
-{
-    int i, j, k, *bucket, max, min, range;
+void bucketSort(int *arr, int n) {
+  int i, j, k, *bucket, max, min, range;
 
-    max = arr[0];
-    min = arr[0];
+  max = arr[0];
+  min = arr[0];
 
-    for (i = 0; i < n; i++)
-    {
-        if (arr[i] > max)
-            max = arr[i];
-        if (arr[i] < min)
-            min = arr[i];
-    }
+  for (i = 0; i < n; i++) {
+    if (arr[i] > max)
+      max = arr[i];
+    if (arr[i] < min)
+      min = arr[i];
+  }
 
-    range = max - min + 1;
-    bucket = (int *)malloc(sizeof(int) * range);
+  range = max - min + 1;
+  bucket = (int *)malloc(sizeof(int) * range);
 
-    for (i = 0; i < range; i++)
-        bucket[i] = 0;
+  for (i = 0; i < range; i++)
+    bucket[i] = 0;
 
-    for (i = 0; i < n; i++)
-        bucket[arr[i] - min]++;
+  for (i = 0; i < n; i++)
+    bucket[arr[i] - min]++;
 
-    k = 0;
-    for (i = 0; i < range; i++)
-    {
-        for (j = 0; j < bucket[i]; j++)
-            arr[k++] = i + min;
-    }
+  k = 0;
+  for (i = 0; i < range; i++) {
+    for (j = 0; j < bucket[i]; j++)
+      arr[k++] = i + min;
+  }
 }
 
-void printArr(int *arr, int n)
-{
-    int i;
+void printArr(int *arr, int n) {
+  int i;
 
-    for (i = 0; i < n; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
+  for (i = 0; i < n; i++)
+    printf("%d ", arr[i]);
+  printf("\n");
 }
 
 /*
