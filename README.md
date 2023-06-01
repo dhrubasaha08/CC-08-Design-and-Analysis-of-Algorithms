@@ -56,7 +56,7 @@ The `practical` folder contains C programs that implement various algorithms and
 48. [tree_red_black.c](practical/tree_red_black.c)
 49. [tree_red_black_del.c](practical/tree_red_black_del.c)
 
-Feel free to explore these implementations. They should provide a practical understanding of the concepts taught in the Design and Analysis of Algorithms course.
+Feel free to explore these implementations. They should provide a practical understanding of the concepts in the Design and Analysis of Algorithms course.
 
 ## Other Folders
 
@@ -67,3 +67,11 @@ Feel free to explore these implementations. They should provide a practical unde
 ## License
 
 This project is licensed under the Unlicense license - see the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+Contributions are welcome. Please open an issue to discuss your idea before making a pull request.
+
+## Contact
+
+If you have any questions or feedback, please reach out to me at my GitHub profile, [dhrubasaha08](https://github.com/dhrubasaha08).
